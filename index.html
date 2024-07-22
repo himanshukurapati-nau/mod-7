@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .task {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .task:hover {
+            background-color: #f0f0f0;
+        }
+        .task.red {
+            color: red;
+        }
+        .task.green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <ul id="taskList" class="task-list">
+        <li class="task red">Task 1</li>
+        <li class="task red">Task 2</li>
+        <li class="task red">Task 3</li>
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const taskList = document.getElementById('taskList');
+
+            taskList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('task')) {
+                    if (event.target.classList.contains('red')) {
+                        event.target.classList.remove('red');
+                        event.target.classList.add('green');
+                    } else {
+                        event.target.classList.remove('green');
+                        event.target.classList.add('red');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
